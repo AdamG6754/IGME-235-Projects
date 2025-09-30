@@ -88,6 +88,7 @@ header,
     font-size: .75rem;
 }
 
+
 #first {
     padding-left: 5rem;
 }
@@ -109,7 +110,17 @@ header,
     padding-top: 1rem;
     padding-right: 4rem;
     grid-area: integral;
-    border-bottom: .25em solid black;
+    border-bottom: .25em solid darkgray;
+}
+
+#firstp {
+    font-style: italic;
+}
+
+#badpres {
+    width: 8em;
+    height: 10.5em;
+    float: right;
 }
 
 #eventitle {
