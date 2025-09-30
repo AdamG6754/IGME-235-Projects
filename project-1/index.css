@@ -1,0 +1,128 @@
+header {
+    background-color: blue;
+    color: white;
+    padding-left: 5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    grid-area: bluetop;
+}
+
+#destination {
+    font-size: 5em;
+    padding-top: 1em;
+}
+
+#year {
+    height: 2em;
+    width: auto;
+}
+
+#indy {
+    height: auto;
+    width: 75%;
+    float: right;
+}
+
+header,
+#destination {
+    font-weight: bold;
+}
+
+#destination,
+#morehook {
+    padding-left: 5rem;
+    padding-right: 4rem;
+}
+
+#morehook {
+    font-size: 2em;
+}
+
+#hook {
+    grid-area: hook;
+}
+
+#blue {
+    color: blue;
+    font-weight: bold;
+}
+
+#all {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr minmax(5fr, auto) 2fr 4fr;
+    grid-template-areas:
+        "bluetop"
+        "hook"
+        "whipboy"
+        "integral"
+        "eventitle"
+        "eventlist";
+    margin: 0 auto;
+    font: 1em sans-serif;
+    min-width: 70em;
+    max-width: 100vw;
+    background-color: lightgrey;
+}
+
+#eventlist {
+    grid-area: eventlist;
+    display: flex;
+
+    background-color: blanchedalmond;
+    color: darkblue;
+}
+
+#first,
+#second,
+#third {
+    border-right: 1px solid darkblue;
+}
+
+#first,
+#second,
+#third,
+#fourth {
+    width: 25%;
+    padding-top: .5rem;
+    padding-right: 1rem;
+    font-size: .75rem;
+}
+
+#first {
+    padding-left: 5rem;
+}
+
+
+#whipboy {
+    padding-left: 5rem;
+    padding-top: 1rem;
+    font-size: 1.5em;
+}
+
+#article {
+    font-family: serif;
+    max-width: 25%;
+}
+
+#integral {
+    padding-left: 5rem;
+    padding-top: 1rem;
+    padding-right: 4rem;
+    grid-area: integral;
+    border-bottom: .25em solid black;
+}
+
+#eventitle {
+    padding-left: 5rem;
+    padding-top: 1rem;
+    grid-area: eventitle;
+
+}
+
+.added {
+    background-color: blanchedalmond;
+}
+
+#tab {
+    margin-left: 2em;
+}
