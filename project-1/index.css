@@ -5,9 +5,9 @@
 header {
     background-color: blue;
     color: white;
-    padding-left: 5em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     grid-area: bluetop;
 }
 
@@ -34,8 +34,8 @@ header,
 
 #destination,
 #morehook {
-    padding-left: 5rem;
-    padding-right: 4rem;
+    padding-left: 5%;
+    padding-right: 4%;
 }
 
 #morehook {
@@ -63,7 +63,7 @@ header,
         "eventlist";
     margin: 0 auto;
     font: 1em sans-serif;
-    width: 100%;
+    width: 100vw;
     background-color: lightgrey;
 }
 
@@ -83,40 +83,41 @@ header,
 #third,
 #fourth {
     max-width: 100%;
-    padding-top: .5rem;
     padding-right: 1rem;
     font-size: .75rem;
+    padding-left: 1em;
+
 }
 
+#first,
 #second,
-#third,
-#fourth {
-    padding-left: 1em;
+#third {
+    border-bottom: 1px solid darkblue;
 }
 
 
 #first {
-    padding-left: 5rem;
+    padding-top: .5rem;
 }
 
 
 #whipboy {
-    padding-left: 5rem;
-    padding-top: 1rem;
+    padding-left: 5%;
+    padding-top: 1%;
     font-size: 1.5em;
 }
 
 #article {
     font-family: serif;
-    max-width: 25%;
+    max-width: 100%;
 }
 
 #integral {
-    padding-left: 5rem;
-    padding-top: 1rem;
-    padding-right: 4rem;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-right: 4%;
     grid-area: integral;
-    border-bottom: .25em solid darkgray;
+    border-bottom: .25em ridge darkgray;
 }
 
 #firstp {
@@ -127,11 +128,12 @@ header,
     width: 25%;
     height: auto;
     float: right;
+    padding-right: 3%;
 }
 
 #eventitle {
-    padding-left: 5rem;
-    padding-top: 1rem;
+    padding-left: 5%;
+    padding-top: 1%;
     grid-area: eventitle;
 
 }
@@ -141,12 +143,13 @@ header,
 }
 
 #tab {
-    margin-left: 2em;
+    margin-left: 2%;
 }
 
 @media screen and (min-width: 1200px) {
     #all {
         width: 70em;
+        height: auto;
     }
 
     #eventlist {
@@ -161,6 +164,7 @@ header,
         padding-top: .5rem;
         padding-right: 1rem;
         font-size: .75rem;
+        border-bottom: none;
     }
 
     #first,
@@ -168,6 +172,11 @@ header,
     #third {
         border-right: 1px solid darkblue;
     }
+
+    #first {
+        padding-left: 5%;
+    }
+
 
 
 }
