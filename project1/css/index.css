@@ -12,18 +12,18 @@ header {
 }
 
 #destination {
-    font-size: 5em;
+    font-size: 4em;
     padding-top: 1em;
 }
 
 #year {
-    height: 2em;
+    max-height: 2em;
     width: auto;
 }
 
 #indy {
     height: auto;
-    width: 75%;
+    max-width: 75%;
     float: right;
 }
 
@@ -44,6 +44,7 @@ header,
 
 #hook {
     grid-area: hook;
+    background-color: lightgray;
 }
 
 #blue {
@@ -53,7 +54,7 @@ header,
 
 #all {
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr minmax(5fr, auto) 2fr 4fr;
+    grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas:
         "bluetop"
         "hook"
@@ -63,7 +64,7 @@ header,
         "eventlist";
     margin: 0 auto;
     font: 1em sans-serif;
-    width: 100vw;
+    width: 100%;
     background-color: lightgrey;
 }
 
@@ -105,6 +106,7 @@ header,
     padding-left: 5%;
     padding-top: 1%;
     font-size: 1.5em;
+    background-color: lightgray;
 }
 
 #article {
@@ -117,6 +119,7 @@ header,
     padding-top: 1%;
     padding-right: 4%;
     grid-area: integral;
+    background-color: lightgray;
     border-bottom: .25em ridge darkgray;
 }
 
@@ -125,7 +128,7 @@ header,
 }
 
 #badpres {
-    width: 25%;
+    max-width: 25%;
     height: auto;
     float: right;
     padding-right: 3%;
@@ -135,6 +138,7 @@ header,
     padding-left: 5%;
     padding-top: 1%;
     grid-area: eventitle;
+    background-color: lightgray;
 
 }
 
