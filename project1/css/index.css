@@ -17,8 +17,8 @@ header {
 }
 
 #year {
-    max-height: 2em;
-    width: auto;
+    max-height: auto;
+    max-width: 5em;
 }
 
 #indy {
@@ -128,7 +128,7 @@ header,
 }
 
 #badpres {
-    max-width: 25%;
+    max-width: 30%;
     height: auto;
     float: right;
     padding-right: 3%;
