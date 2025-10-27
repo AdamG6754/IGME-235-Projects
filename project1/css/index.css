@@ -2,13 +2,18 @@
     box-sizing: border-box;
 }
 
-header {
+header,
+header a {
     background-color: blue;
     color: white;
     padding-left: 5%;
     padding-top: 1%;
     padding-bottom: 1%;
     grid-area: bluetop;
+}
+
+header a {
+    text-decoration: none;
 }
 
 #destination {
