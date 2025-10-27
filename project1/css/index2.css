@@ -2,13 +2,19 @@
     box-sizing: border-box;
 }
 
-header {
+header,
+header a {
     background-color: blue;
     color: white;
     padding-left: 5%;
     padding-top: 1%;
     padding-bottom: 1%;
     grid-area: bluetop;
+    text-align: center;
+}
+
+header a {
+    text-decoration: none;
 }
 
 #destination {
@@ -17,8 +23,8 @@ header {
 }
 
 #year {
-    max-height: 2em;
-    width: auto;
+    max-height: auto;
+    max-width: 5em;
 }
 
 #indy {
@@ -74,7 +80,7 @@ header,
     display: flex;
     flex-direction: column;
 
-    background-color: blanchedalmond;
+    background-color: yellow;
     color: darkblue;
 }
 
@@ -128,7 +134,7 @@ header,
 }
 
 #badpres {
-    max-width: 25%;
+    max-width: 30%;
     height: auto;
     float: right;
     padding-right: 3%;
@@ -143,7 +149,8 @@ header,
 }
 
 .added {
-    background-color: blanchedalmond;
+    background-color: yellow;
+    border-bottom: 1px solid yellow;
 }
 
 #tab {
