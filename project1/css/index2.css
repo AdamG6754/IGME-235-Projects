@@ -4,17 +4,21 @@
 
 header,
 header a {
-    background-color: blue;
+    background-color: rgb(0, 64, 224);
     color: white;
     padding-left: 5%;
     padding-top: 1%;
     padding-bottom: 1%;
     grid-area: bluetop;
     text-align: center;
+    position: sticky;
+    top: 0px;
 }
 
 header a {
     text-decoration: none;
+    font-family: "Bangers", system-ui;
+    font-size: large;
 }
 
 #destination {
@@ -25,6 +29,7 @@ header a {
 #year {
     max-height: auto;
     max-width: 5em;
+    float: right;
 }
 
 #indy {
@@ -46,16 +51,19 @@ header,
 
 #morehook {
     font-size: 2em;
+    font-weight: bolder;
 }
 
 #hook {
     grid-area: hook;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
+    font-family: "Comic Neue", cursive;
 }
 
 #blue {
-    color: blue;
-    font-weight: bold;
+    color: rgb(0, 64, 224);
+    font-family: "Bangers", system-ui;
+    font-weight: normal;
 }
 
 #all {
@@ -71,7 +79,7 @@ header,
     margin: 0 auto;
     font: 1em sans-serif;
     width: 100%;
-    background-color: lightgrey;
+    background-color: rgb(240, 240, 240);
 }
 
 
@@ -80,8 +88,11 @@ header,
     display: flex;
     flex-direction: column;
 
-    background-color: yellow;
-    color: darkblue;
+    background-color: rgb(240, 224, 0);
+    color: rgb(44, 0, 253);
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-size: larger;
 }
 
 
@@ -99,7 +110,7 @@ header,
 #first,
 #second,
 #third {
-    border-bottom: 1px solid darkblue;
+    border-bottom: 1px solid rgb(44, 0, 253);
 }
 
 
@@ -112,11 +123,13 @@ header,
     padding-left: 5%;
     padding-top: 1%;
     font-size: 1.5em;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
 }
 
 #article {
-    font-family: serif;
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-size: medium;
     max-width: 100%;
 }
 
@@ -125,7 +138,7 @@ header,
     padding-top: 1%;
     padding-right: 4%;
     grid-area: integral;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
     border-bottom: .25em ridge darkgray;
 }
 
@@ -144,13 +157,13 @@ header,
     padding-left: 5%;
     padding-top: 1%;
     grid-area: eventitle;
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
 
 }
 
 .added {
-    background-color: yellow;
-    border-bottom: 1px solid yellow;
+    background-color: rgb(240, 224, 0);
+    border-bottom: 1px solid rgb(240, 224, 0);
 }
 
 #tab {
