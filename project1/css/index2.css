@@ -30,14 +30,14 @@ header a {
     max-height: auto;
     max-width: 5em;
     float: right;
+    background-image: radial-gradient(circle, rgb(0, 143, 109), rgb(0, 255, 109), rgb(0, 143, 109));
 }
 
 #indy {
     height: auto;
     max-width: 75%;
     float: right;
-    border-bottom: 1px solid rgb(240, 0, 0);
-    border-left: 1px solid rgb(240, 0, 0);
+    background-image: radial-gradient(circle, orange, rgb(240, 224, 0), orange);
 
 }
 
