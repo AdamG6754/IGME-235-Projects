@@ -27,9 +27,9 @@ header a {
     font-size: large;
     padding: 0.5em 1em;
     transition:
-        transform 0.3s ease,
-        background-color 0.5s ease,
-        color .5s ease;
+        transform 0.07s linear,
+        background-color 0.2s ease,
+        color .1s linear;
 }
 
 header a:hover {
@@ -41,6 +41,7 @@ header a:hover {
 #destination {
     font-size: 4em;
     padding-top: 1em;
+    font-family: "Press Start 2P", system-ui;
 }
 
 #year {
