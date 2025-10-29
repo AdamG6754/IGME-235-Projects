@@ -15,10 +15,27 @@ header a {
     top: 0px;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 header a {
     text-decoration: none;
     font-family: "Bangers", system-ui;
     font-size: large;
+    padding: 0.5em 1em;
+    transition:
+        transform 0.3s ease,
+        background-color 0.5s ease,
+        color .5s ease;
+}
+
+header a:hover {
+    transform: scale(1.5);
+    background-color: rgb(0, 38, 134);
+    color: rgb(240, 224, 0);
 }
 
 #destination {
@@ -197,7 +214,7 @@ header,
     #first,
     #second,
     #third {
-        border-right: 1px solid darkblue;
+        border-right: 1px solid rgb(0, 64, 224);
     }
 
     #first {
