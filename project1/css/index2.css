@@ -41,7 +41,7 @@ header a:hover {
 #destination {
     font-size: 4em;
     padding-top: 1em;
-    font-family: "Press Start 2P", system-ui;
+    font-family: "Chakra Petch", sans-serif;
 }
 
 #year {
@@ -193,7 +193,7 @@ header,
 
 @media screen and (min-width: 1200px) {
     #all {
-        width: 70em;
+        width: 90%;
         height: auto;
     }
 
