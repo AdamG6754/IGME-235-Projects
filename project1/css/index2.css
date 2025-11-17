@@ -46,7 +46,7 @@ header a:hover {
 }
 
 #year {
-    max-height: auto;
+    height: auto;
     max-width: 5em;
     float: right;
     background-image: radial-gradient(circle, rgb(0, 143, 109), rgb(0, 255, 109), rgb(0, 143, 109));
