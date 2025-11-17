@@ -91,7 +91,7 @@ function searchButtonClicked() {
     // Check if the dex goes that far
     if (combined > 1025) {
         document.querySelector("#tempRes").textContent =
-            "There are no pokemon after dex #1025, you have no birthday pokemon.";
+            "There are no pokemon after dex #1025, you have no birthday pokemon. Try again when the next game comes out.";
         document.querySelector("#tempRes").style.color = "red";
         document.querySelector("#its").src = "media/Empty.png";
         document.querySelector("#its").style.display = "none";
