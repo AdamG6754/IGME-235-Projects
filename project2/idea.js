@@ -30,12 +30,12 @@ function searchButtonClicked() {
         document.querySelector("#its").alt = "Nothing to display."
         document.querySelector("#its").style.display = "none";
 
-        document.querySelector("#hp").textContent = "(Health): ";
-        document.querySelector("#atk").textContent = "(Attack): ";
-        document.querySelector("#df").textContent = "(Defense): ";
-        document.querySelector("#satk").textContent = "(Special Attack): ";
-        document.querySelector("#sdf").textContent = "(Special Defense): ";
-        document.querySelector("#sped").textContent = "(Speed): ";
+        document.querySelector("#hp").textContent = "(Health)";
+        document.querySelector("#atk").textContent = "(Attack)";
+        document.querySelector("#df").textContent = "(Defense)";
+        document.querySelector("#satk").textContent = "(Special Attack)";
+        document.querySelector("#sdf").textContent = "(Special Defense)";
+        document.querySelector("#sped").textContent = "(Speed)";
 
         return;
     }
@@ -48,12 +48,12 @@ function searchButtonClicked() {
         document.querySelector("#its").alt = "Nothing to display."
         document.querySelector("#its").style.display = "none";
 
-        document.querySelector("#hp").textContent = "(Health): ";
-        document.querySelector("#atk").textContent = "(Attack): ";
-        document.querySelector("#df").textContent = "(Defense): ";
-        document.querySelector("#satk").textContent = "(Special Attack): ";
-        document.querySelector("#sdf").textContent = "(Special Defense): ";
-        document.querySelector("#sped").textContent = "(Speed): ";
+        document.querySelector("#hp").textContent = "(Health)";
+        document.querySelector("#atk").textContent = "(Attack)";
+        document.querySelector("#df").textContent = "(Defense)";
+        document.querySelector("#satk").textContent = "(Special Attack)";
+        document.querySelector("#sdf").textContent = "(Special Defense)";
+        document.querySelector("#sped").textContent = "(Speed)";
         return;
     }
 
@@ -62,12 +62,7 @@ function searchButtonClicked() {
     const combined = Number(month + day);
 
     //check for legit bdays
-    if ((combined > 131 && combined < 200) || (combined > 229 && combined < 300)
-        || (combined > 331 && combined < 400) || (combined > 430 && combined < 500)
-        || (combined > 531 && combined < 600) || (combined > 630 && combined < 700)
-        || (combined > 731 && combined < 800) || (combined > 831 && combined < 900)
-        || (combined > 930 && combined < 1000) || (combined > 1031 && combined < 1100)
-        || (combined > 1130 && combined < 1200) || combined > 1231) {
+    if (!legitDay(combined) || day < 1) {
         document.querySelector("#tempRes").textContent =
             "Not a valid birth date, please input a valid birth date.";
         document.querySelector("#tempRes").style.color = "red";
@@ -75,12 +70,12 @@ function searchButtonClicked() {
         document.querySelector("#its").alt = "Nothing to display."
         document.querySelector("#its").style.display = "none";
 
-        document.querySelector("#hp").textContent = "(Health): ";
-        document.querySelector("#atk").textContent = "(Attack): ";
-        document.querySelector("#df").textContent = "(Defense): ";
-        document.querySelector("#satk").textContent = "(Special Attack): ";
-        document.querySelector("#sdf").textContent = "(Special Defense): ";
-        document.querySelector("#sped").textContent = "(Speed): ";
+        document.querySelector("#hp").textContent = "(Health)";
+        document.querySelector("#atk").textContent = "(Attack)";
+        document.querySelector("#df").textContent = "(Defense)";
+        document.querySelector("#satk").textContent = "(Special Attack)";
+        document.querySelector("#sdf").textContent = "(Special Defense)";
+        document.querySelector("#sped").textContent = "(Speed)";
 
         return;
     }
@@ -101,12 +96,12 @@ function searchButtonClicked() {
         document.querySelector("#its").src = "media/Empty.png";
         document.querySelector("#its").style.display = "none";
 
-        document.querySelector("#hp").textContent = "(Health): ";
-        document.querySelector("#atk").textContent = "(Attack): ";
-        document.querySelector("#df").textContent = "(Defense): ";
-        document.querySelector("#satk").textContent = "(Special Attack): ";
-        document.querySelector("#sdf").textContent = "(Special Defense): ";
-        document.querySelector("#sped").textContent = "(Speed): ";
+        document.querySelector("#hp").textContent = "(Health)";
+        document.querySelector("#atk").textContent = "(Attack)";
+        document.querySelector("#df").textContent = "(Defense)";
+        document.querySelector("#satk").textContent = "(Special Attack)";
+        document.querySelector("#sdf").textContent = "(Special Defense)";
+        document.querySelector("#sped").textContent = "(Speed)";
 
 
         return;
@@ -162,12 +157,12 @@ function searchButtonClicked() {
                 document.querySelector("#generation").textContent = "Originating from gen IX";
             }
 
-            document.querySelector("#hp").textContent = "(Health): " + data.stats[0].base_stat;
-            document.querySelector("#atk").textContent = "(Attack): " + data.stats[1].base_stat;
-            document.querySelector("#df").textContent = "(Defense): " + data.stats[2].base_stat;
-            document.querySelector("#satk").textContent = "(Special Attack): " + data.stats[3].base_stat;
-            document.querySelector("#sdf").textContent = "(Special Defense): " + data.stats[4].base_stat;
-            document.querySelector("#sped").textContent = "(Speed): " + data.stats[5].base_stat;
+            document.querySelector("#hp").textContent = "Health: " + data.stats[0].base_stat;
+            document.querySelector("#atk").textContent = "Attack: " + data.stats[1].base_stat;
+            document.querySelector("#df").textContent = "Defense: " + data.stats[2].base_stat;
+            document.querySelector("#satk").textContent = "Special Attack: " + data.stats[3].base_stat;
+            document.querySelector("#sdf").textContent = "Special Defense: " + data.stats[4].base_stat;
+            document.querySelector("#sped").textContent = "Speed: " + data.stats[5].base_stat;
         })
         .catch(error => {
             const tempRes = document.getElementById("tempRes");
@@ -186,4 +181,22 @@ function searchButtonClicked() {
 
         });
 
+}
+
+//function to test for legit dates -still feels ugly-
+function legitDay(thing) {
+    if ((thing > 131 && thing < 200) || (thing > 229 && thing < 300)
+        //no valid days in month 1 after 1/31, no valid days in month 2 after 2/29
+        || (thing > 331 && thing < 400) || (thing > 430 && thing < 500)
+        //no valid days in month 3 after 3/31, no valid days in month 4 after 4/30, etc etc.
+        || (thing > 531 && thing < 600) || (thing > 630 && thing < 700)
+        || (thing > 731 && thing < 800) || (thing > 831 && thing < 900)
+        || (thing > 930 && thing < 1000) || (thing > 1031 && thing < 1100)
+        || (thing > 1130 && thing < 1200) || thing > 1231) {
+        return false;
+    }
+
+    else {
+        return true;
+    }
 }
