@@ -13,55 +13,59 @@
 </head>
 
 <body>
-    <h1 id="top">
-        BIRTHDAY POKÉMON FINDER
-    </h1>
-    <span>Birth Month:</span>
-    <select id="month">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-    <br>
+    <div id="all">
+        <h1 id="top">
+            BIRTHDAY POKÉMON FINDER
+        </h1>
+        <div class="position">
+            <span>Birth Month:</span>
+            <select id="month">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <br>
 
-    <span>Birth Day (number):</span>
-    <input id="day" type="text" size="20" maxlength="20" autofocus value="" />
-    <br>
+            <span>Birth Day (number):</span>
+            <input id="day" type="text" size="20" maxlength="20" autofocus value="" />
+            <br>
 
-    <span>Shiny?:</span>
-    <select id="shiny">
-        <option value="no">No</option>
-        <option value="yes">Yes</option>
-    </select>
+            <span>Shiny?:</span>
+            <select id="shiny">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
 
-    <div class="widgets">
-        <button type="button" id="find">Find Your BDay Pokemon!<br /></button>
+            <div class="widgets">
+                <button type="button" id="find">Find Your BDay Pokemon!<br /></button>
+            </div>
+            <hr>
+            <hr id="result">
+
+            <h1 id="tempRes">Click the button above to find out what your birthday Pokemon is!</h1>
+        </div>
+
+        <img id="its" src="https://cdn.pixabay.com/photo/2016/08/15/00/50/pokeball-1594373_1280.png"
+            alt="pokemon sprite">
+
+        <h2 id="generation">(generation)</h2>
+        <!--stats-->
+        <h3 id="hp">(Health)</h3>
+        <h3 id="atk">(Attack)</h3>
+        <h3 id="df">(defense)</h3>
+        <h3 id="satk">(Special Attack)</h3>
+        <h3 id="sdf">(Special Defense)</h3>
+        <h3 id="sped">(Speed)</h3>
     </div>
-    <hr>
-    <hr id="result">
-
-    <h1 id="tempRes">Click the button above to find out what your birthday Pokemon is!</h1>
-
-    <img id="its" src="https://cdn.pixabay.com/photo/2016/08/15/00/50/pokeball-1594373_1280.png" alt="pokemon sprite">
-
-    <h2 id="generation">(generation)</h2>
-    <!--stats-->
-    <h3 id="hp">(Health)</h3>
-    <h3 id="atk">(Attack)</h3>
-    <h3 id="df">(defense)</h3>
-    <h3 id="satk">(Special Attack)</h3>
-    <h3 id="sdf">(Special Defense)</h3>
-    <h3 id="sped">(Speed)</h3>
-
     <script src="idea.js"></script>
 </body>
 

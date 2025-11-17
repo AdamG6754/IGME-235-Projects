@@ -14,6 +14,10 @@
            background-color: #007BFF;
        }
 
+       .position {
+           text-align: center;
+       }
+
        button,
        #tempRes,
        #top,
@@ -29,6 +33,7 @@
            padding-bottom: 1em;
            color: #007BFF;
 
+
        }
 
        #tempRes {
@@ -38,6 +43,8 @@
        img {
            width: 15em;
            padding: 0;
+           display: block;
+           margin: 0 auto;
        }
 
        span,
@@ -72,4 +79,14 @@
 
        #sped {
            color: violet;
+       }
+
+
+       @media screen and (min-width: 800px) {
+           #all {
+               width: 50em;
+               height: auto;
+               margin: 0 auto;
+           }
+
        }

@@ -5,6 +5,8 @@ document.querySelector("#day").value = localStorage.getItem('day');
 document.querySelector("#shiny").value = localStorage.getItem('shiny');
 
 function searchButtonClicked() {
+    document.querySelector("#its").style.display = "block";
+
     const month = document.querySelector("#month").value;
     const day = document.querySelector("#day").value.trim();
 
@@ -26,6 +28,15 @@ function searchButtonClicked() {
         document.querySelector("#tempRes").style.color = "red";
         document.querySelector("#its").src = "media/Empty.png";
         document.querySelector("#its").alt = "Nothing to display."
+        document.querySelector("#its").style.display = "none";
+
+        document.querySelector("#hp").textContent = "(Health): ";
+        document.querySelector("#atk").textContent = "(Attack): ";
+        document.querySelector("#df").textContent = "(Defense): ";
+        document.querySelector("#satk").textContent = "(Special Attack): ";
+        document.querySelector("#sdf").textContent = "(Special Defense): ";
+        document.querySelector("#sped").textContent = "(Speed): ";
+
         return;
     }
 
@@ -35,12 +46,44 @@ function searchButtonClicked() {
         document.querySelector("#tempRes").style.color = "red";
         document.querySelector("#its").src = "media/Empty.png";
         document.querySelector("#its").alt = "Nothing to display."
+        document.querySelector("#its").style.display = "none";
+
+        document.querySelector("#hp").textContent = "(Health): ";
+        document.querySelector("#atk").textContent = "(Attack): ";
+        document.querySelector("#df").textContent = "(Defense): ";
+        document.querySelector("#satk").textContent = "(Special Attack): ";
+        document.querySelector("#sdf").textContent = "(Special Defense): ";
+        document.querySelector("#sped").textContent = "(Speed): ";
         return;
     }
 
 
     // Combine month and day
     const combined = Number(month + day);
+
+    //check for legit bdays
+    if ((combined > 131 && combined < 200) || (combined > 229 && combined < 300)
+        || (combined > 331 && combined < 400) || (combined > 430 && combined < 500)
+        || (combined > 531 && combined < 600) || (combined > 630 && combined < 700)
+        || (combined > 731 && combined < 800) || (combined > 831 && combined < 900)
+        || (combined > 930 && combined < 1000) || (combined > 1031 && combined < 1100)
+        || (combined > 1130 && combined < 1200) || combined > 1231) {
+        document.querySelector("#tempRes").textContent =
+            "Not a valid birth date, please input a valid birth date.";
+        document.querySelector("#tempRes").style.color = "red";
+        document.querySelector("#its").src = "media/Empty.png";
+        document.querySelector("#its").alt = "Nothing to display."
+        document.querySelector("#its").style.display = "none";
+
+        document.querySelector("#hp").textContent = "(Health): ";
+        document.querySelector("#atk").textContent = "(Attack): ";
+        document.querySelector("#df").textContent = "(Defense): ";
+        document.querySelector("#satk").textContent = "(Special Attack): ";
+        document.querySelector("#sdf").textContent = "(Special Defense): ";
+        document.querySelector("#sped").textContent = "(Speed): ";
+
+        return;
+    }
 
     //go to result
     document.getElementById("result").scrollIntoView({
@@ -56,6 +99,15 @@ function searchButtonClicked() {
             "There are no pokemon after dex #1025, you have no birthday pokemon.";
         document.querySelector("#tempRes").style.color = "red";
         document.querySelector("#its").src = "media/Empty.png";
+        document.querySelector("#its").style.display = "none";
+
+        document.querySelector("#hp").textContent = "(Health): ";
+        document.querySelector("#atk").textContent = "(Attack): ";
+        document.querySelector("#df").textContent = "(Defense): ";
+        document.querySelector("#satk").textContent = "(Special Attack): ";
+        document.querySelector("#sdf").textContent = "(Special Defense): ";
+        document.querySelector("#sped").textContent = "(Speed): ";
+
 
         return;
     }
@@ -121,8 +173,17 @@ function searchButtonClicked() {
             const tempRes = document.getElementById("tempRes");
             tempRes.textContent = "Error: " + error.message;
             tempRes.style.color = "red";
+            document.querySelector("#its").style.display = "none";
             document.querySelector("#its").src = "media/Empty.png";
             document.querySelector("#its").alt = "Nothing to display."
+
+            document.querySelector("#hp").textContent = "(Health): ";
+            document.querySelector("#atk").textContent = "(Attack): ";
+            document.querySelector("#df").textContent = "(Defense): ";
+            document.querySelector("#satk").textContent = "(Special Attack): ";
+            document.querySelector("#sdf").textContent = "(Special Defense): ";
+            document.querySelector("#sped").textContent = "(Speed): ";
+
         });
 
 }
