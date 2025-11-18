@@ -48,6 +48,8 @@ function searchButtonClicked() {
         document.querySelector("#its").alt = "Nothing to display."
         document.querySelector("#its").style.display = "none";
 
+
+        document.querySelector("#generation").textContent = "(Generation)";
         document.querySelector("#hp").textContent = "(Health)";
         document.querySelector("#atk").textContent = "(Attack)";
         document.querySelector("#df").textContent = "(Defense)";
@@ -129,33 +131,7 @@ function searchButtonClicked() {
             tempRes.style.color = "black";
             document.querySelector("#its").src = spriteUrl;
 
-            if (data.id <= 151) {
-                document.querySelector("#generation").textContent = "Originating from gen I";
-            }
-            else if (data.id <= 251) {
-                document.querySelector("#generation").textContent = "Originating from gen II";
-            }
-            else if (data.id <= 386) {
-                document.querySelector("#generation").textContent = "Originating from gen III";
-            }
-            else if (data.id <= 493) {
-                document.querySelector("#generation").textContent = "Originating from gen IV";
-            }
-            else if (data.id <= 649) {
-                document.querySelector("#generation").textContent = "Originating from gen V";
-            }
-            else if (data.id <= 721) {
-                document.querySelector("#generation").textContent = "Originating from gen VI";
-            }
-            else if (data.id <= 809) {
-                document.querySelector("#generation").textContent = "Originating from gen VII";
-            }
-            else if (data.id <= 905) {
-                document.querySelector("#generation").textContent = "Originating from gen VIII";
-            }
-            else if (data.id <= 1025) {
-                document.querySelector("#generation").textContent = "Originating from gen IX";
-            }
+            genFind(data.id);
 
             document.querySelector("#hp").textContent = "Health: " + data.stats[0].base_stat;
             document.querySelector("#atk").textContent = "Attack: " + data.stats[1].base_stat;
@@ -199,4 +175,35 @@ function legitDay(thing) {
     else {
         return true;
     }
+}
+
+function genFind(gen) {
+    if (gen <= 151) {
+        document.querySelector("#generation").textContent = "Originating from gen I";
+    }
+    else if (gen <= 251) {
+        document.querySelector("#generation").textContent = "Originating from gen II";
+    }
+    else if (gen <= 386) {
+        document.querySelector("#generation").textContent = "Originating from gen III";
+    }
+    else if (gen <= 493) {
+        document.querySelector("#generation").textContent = "Originating from gen IV";
+    }
+    else if (gen <= 649) {
+        document.querySelector("#generation").textContent = "Originating from gen V";
+    }
+    else if (gen <= 721) {
+        document.querySelector("#generation").textContent = "Originating from gen VI";
+    }
+    else if (gen <= 809) {
+        document.querySelector("#generation").textContent = "Originating from gen VII";
+    }
+    else if (gen <= 905) {
+        document.querySelector("#generation").textContent = "Originating from gen VIII";
+    }
+    else if (gen <= 1025) {
+        document.querySelector("#generation").textContent = "Originating from gen IX";
+    }
+
 }

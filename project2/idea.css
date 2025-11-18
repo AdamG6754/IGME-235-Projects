@@ -12,6 +12,11 @@
            color: #fff;
            text-decoration: none;
            background-color: #007BFF;
+           transition: background-color .3s ease;
+       }
+
+       #find:hover {
+           background-color: #3bc4ff;
        }
 
        .position {
