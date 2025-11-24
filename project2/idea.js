@@ -14,11 +14,6 @@ function searchButtonClicked() {
     localStorage.setItem('day', day);
     localStorage.setItem('shiny', document.querySelector("#shiny").value);
 
-    // for debugging
-    console.log("month: " + localStorage.getItem('month'));
-    console.log("day: " + localStorage.getItem('day'));
-    console.log("shiny: " + localStorage.getItem('shiny'));
-
 
 
     // Check if day is valid
