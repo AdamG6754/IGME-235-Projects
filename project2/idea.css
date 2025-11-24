@@ -41,6 +41,10 @@
 
        }
 
+       #top img {
+           backdrop-filter: opacity(.5);
+       }
+
        #tempRes {
            text-align: center;
        }
@@ -89,7 +93,7 @@
 
        @media screen and (min-width: 800px) {
            #all {
-               width: 50em;
+               width: 70vw;
                height: auto;
                margin: 0 auto;
            }
