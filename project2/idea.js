@@ -14,11 +14,6 @@ function searchButtonClicked() {
     localStorage.setItem('day', day);
     localStorage.setItem('shiny', document.querySelector("#shiny").value);
 
-    // for debugging
-    console.log("month: " + localStorage.getItem('month'));
-    console.log("day: " + localStorage.getItem('day'));
-    console.log("shiny: " + localStorage.getItem('shiny'));
-
 
 
     // Check if day is valid
@@ -180,31 +175,31 @@ function legitDay(thing) {
 
 function genFind(gen) {
     if (gen <= 151) {
-        document.querySelector("#generation").textContent = "Originating from gen I";
+        document.querySelector("#generation").textContent = "Originating from Gen I";
     }
     else if (gen <= 251) {
-        document.querySelector("#generation").textContent = "Originating from gen II";
+        document.querySelector("#generation").textContent = "Originating from Gen II";
     }
     else if (gen <= 386) {
-        document.querySelector("#generation").textContent = "Originating from gen III";
+        document.querySelector("#generation").textContent = "Originating from Gen III";
     }
     else if (gen <= 493) {
-        document.querySelector("#generation").textContent = "Originating from gen IV";
+        document.querySelector("#generation").textContent = "Originating from Gen IV";
     }
     else if (gen <= 649) {
-        document.querySelector("#generation").textContent = "Originating from gen V";
+        document.querySelector("#generation").textContent = "Originating from Gen V";
     }
     else if (gen <= 721) {
-        document.querySelector("#generation").textContent = "Originating from gen VI";
+        document.querySelector("#generation").textContent = "Originating from Gen VI";
     }
     else if (gen <= 809) {
-        document.querySelector("#generation").textContent = "Originating from gen VII";
+        document.querySelector("#generation").textContent = "Originating from Gen VII";
     }
     else if (gen <= 905) {
-        document.querySelector("#generation").textContent = "Originating from gen VIII";
+        document.querySelector("#generation").textContent = "Originating from Gen VIII";
     }
     else if (gen <= 1025) {
-        document.querySelector("#generation").textContent = "Originating from gen IX";
+        document.querySelector("#generation").textContent = "Originating from Gen IX";
     }
 
 }

@@ -43,7 +43,8 @@
            padding-bottom: 1em;
            color: #007BFF;
 
-
+           background-color: rgba(255, 255, 255, 0.6);
+           background-blend-mode: lighten;
        }
 
        #tempRes {
@@ -94,9 +95,16 @@
 
        @media screen and (min-width: 800px) {
            #all {
-               width: 50em;
+               width: 70vw;
                height: auto;
                margin: 0 auto;
+           }
+
+           #top {
+               width: 100vw;
+               position: relative;
+               top: 0px;
+               left: -15vw;
            }
 
        }
