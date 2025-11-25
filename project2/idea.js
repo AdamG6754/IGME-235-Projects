@@ -72,6 +72,7 @@ function searchButtonClicked() {
         document.querySelector("#its").alt = "Nothing to display."
         document.querySelector("#its").style.display = "none";
 
+        document.querySelector("#generation").textContent = "(Generation)";
         document.querySelector("#hp").textContent = "(Health)";
         document.querySelector("#atk").textContent = "(Attack)";
         document.querySelector("#df").textContent = "(Defense)";

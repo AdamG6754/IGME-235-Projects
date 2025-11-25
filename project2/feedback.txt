@@ -1,0 +1,3 @@
+Make the top header easier to read
+use backdrop-filter
+adjust for large screens a tad more

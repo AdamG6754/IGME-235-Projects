@@ -19,6 +19,11 @@
            background-color: #3bc4ff;
        }
 
+       a {
+           text-decoration: none;
+           text-align: center;
+       }
+
        .position {
            text-align: center;
        }
