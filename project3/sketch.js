@@ -69,6 +69,22 @@ function draw() {
 
 
    }
+
+   //name card control
+   switch (player.name) {
+      case 'Jack':
+         document.querySelector('#protag').textContent = 'JACK';
+         break;
+      case 'Hunter':
+         document.querySelector('#protag').textContent = 'HUNTER';
+         break;
+      case 'Nate':
+         document.querySelector('#protag').textContent = 'NATE';
+         break;
+
+   }
+
+
    atkCheck();
 
    background("green");
@@ -76,8 +92,6 @@ function draw() {
    walkin();
    playDisplay();
 
-   console.log("atkTime" + player.atkTime);
-   keyPressed();
 
 
 }
@@ -123,7 +137,7 @@ function walkin() {
    }
 
    if (keyIsDown(68)) {
-      if (player.x < 950) {
+      if (player.x < width - 50) {
          player.x += player.speed;
          moving = true;
          walkCyc();
@@ -150,13 +164,15 @@ function walkin() {
       }
    }
 
-   if (!moving) { player.step = 0; }
+   if (player.atkTime > 0) { player.speed = 0; }
+   if (!moving) { player.speed = 0; }
 
 }
 
 //display function
 function playDisplay() {
-   fill('blue');
+   if (player.face == 'right') { fill('blue'); }
+   if (player.face == 'left') { fill('purple'); }
    stroke(0);
    rect(player.x, player.y, 100, 200);
 
@@ -205,6 +221,21 @@ function keyPressed() {
    if (keyCode == 32) {
       attack();
    }
+
+   //Hotswap characters with enter key
+   if (keyCode == 13) {
+      switch (player.name) {
+         case 'Jack':
+            player.name = 'Hunter';
+            break;
+         case 'Hunter':
+            player.name = 'Nate';
+            break;
+         case 'Nate':
+            player.name = 'Jack';
+            break;
+      }
+   }
 }
 
 function atkCheck() {
@@ -233,3 +264,4 @@ function atkCheck() {
 
    }
 }
+
