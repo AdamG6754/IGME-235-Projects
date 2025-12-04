@@ -22,6 +22,14 @@ let player = {
    comboTime: 0 // time left until the combo drops
 }
 
+/* Barrels 
+   array filled with objects that have values
+*/
+let barrels = [
+   { x: 325, y: 300, hp: 20, broken: 0 },
+   { x: 700, y: 200, hp: 20, broken: 0 },
+   { x: 770, y: 245, hp: 20, broken: 0 }
+];
 
 /**
  * setup :
@@ -90,6 +98,10 @@ function draw() {
    background("green");
 
    walkin();
+   barrels.forEach(barrel => {
+      barrelDisplay(barrel);
+   });
+   barrelDisplay();
    playDisplay();
 
 
@@ -263,5 +275,18 @@ function atkCheck() {
       }
 
    }
+}
+
+function barrelDisplay(thing) {
+   if (thing.hp > 10) {
+      fill("orange");
+   }
+   else if (thing.hp > 0) {
+      fill('red');
+   }
+   else {
+      fill('black');
+   }
+   rect(thing.x, thing.y, 100, 150);
 }
 
