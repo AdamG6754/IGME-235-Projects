@@ -64,7 +64,7 @@ function draw() {
          break;
 
       case 'Hunter':
-         player.speed = 20;
+         player.speed = 13;
          player.dmg = 3.33;
          player.maxCombo = 6;
          break;
@@ -101,7 +101,6 @@ function draw() {
    barrels.forEach(barrel => {
       barrelDisplay(barrel);
    });
-   barrelDisplay();
    playDisplay();
 
 
@@ -160,7 +159,7 @@ function walkin() {
 
    if (keyIsDown(87)) {
       if (player.y > 100) {
-         player.y -= player.speed;
+         player.y -= (player.speed / 2);
          walkCyc();
          moving = true;
 
@@ -169,7 +168,7 @@ function walkin() {
 
    if (keyIsDown(83)) {
       if (player.y < 450) {
-         player.y += player.speed;
+         player.y += (player.speed / 2);
          walkCyc();
          moving = true;
 
@@ -198,6 +197,13 @@ function playDisplay() {
    else if (player.face == 'left') {
       rect(player.x - 50, player.y, 100, 200);
    }
+
+   barrels.forEach(barrel => {
+      if (player.y + 50 < barrel.y + 25) {
+         barrelDisplay(barrel);
+      }
+   });
+
 
 }
 
