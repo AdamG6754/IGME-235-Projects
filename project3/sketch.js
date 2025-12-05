@@ -122,9 +122,10 @@ function draw() {
    walkin();
    barrels.forEach(barrel => {
       barrelDisplay(barrel);
+      barrelRestore(barrel);
+
    });
    playDisplay();
-
 
 
 }
@@ -201,10 +202,10 @@ function walkCyc() {
    noStroke();
 
    if (player.face == 'right') {
-      rect(player.x + 50, player.y, 100, 200);
+      rect(player.x + 50, player.y, 15, 200);
    }
    else if (player.face == 'left') {
-      rect(player.x - 50, player.y, 100, 200);
+      rect(player.x - 50, player.y, 15, 200);
    }
 
 
@@ -337,13 +338,31 @@ function barrelDisplay(thing) {
    if (thing.hp > 10) {
       fill("orange");
    }
-   else if (thing.hp > 0) {
+   else if (thing.hp > .1) {
       fill('red');
    }
    else {
       noFill();
    }
    rect(thing.x, thing.y, 100, 150);
+}
+
+//function to recharge barrels
+function barrelRestore(thing) {
+   if (thing.hp <= 0) {
+      thing.broken = 45;
+   }
+
+   //check if recharging
+   if (thing.broken > 1) {
+      thing.hp = .1;
+      thing.broken--;
+   }
+   else if (thing.broken == 1) {
+      thing.hp = 20;
+      barrelDisplay(thing);
+      thing.broken--;
+   }
 }
 
 // function to catch if an attack hits a barrel
