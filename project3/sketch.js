@@ -31,6 +31,17 @@ let barrels = [
    { x: 770, y: 245, hp: 20, broken: 0 }
 ];
 
+let bg;
+
+//walk timer for good animation
+let wTime = 0;
+
+//Jack sprites:
+let jackStandR;
+let jackStandL;
+let jackWalkR1;
+let jackWalkL1;
+
 /**
  * setup :
  */
@@ -38,8 +49,17 @@ function setup() {
    let cnv = createCanvas(1300, 550);
    cnv.parent('canvas-container');
    rectMode(CENTER);
+   imageMode(CENTER);
    frameRate(30);
 
+}
+
+function preload() {
+   bg = loadImage('bg.png');
+   jackStandR = loadImage('JackStandR.png');
+   jackStandL = loadImage('JackStandL.png');
+   jackWalkR1 = loadImage('JackWalkR1.png');
+   jackWalkL1 = loadImage('JackWalkL1.png');
 }
 
 /**
@@ -53,6 +73,8 @@ function draw() {
       player.comboTime--;
    }
    if (player.comboTime === 0) { player.attackCount = 0; }
+   if (wTime > 0) { wTime--; }
+   else if (wTime == 0) { wTime = 3; }
 
 
    //character specific stats:
@@ -65,7 +87,7 @@ function draw() {
 
       case 'Hunter':
          player.speed = 13;
-         player.dmg = 3.33;
+         player.dmg = 3.34;
          player.maxCombo = 6;
          break;
 
@@ -94,8 +116,8 @@ function draw() {
 
 
    atkCheck();
+   image(bg, width / 2, height / 2, width, height);
 
-   background("green");
 
    walkin();
    barrels.forEach(barrel => {
@@ -111,81 +133,68 @@ function draw() {
 function walkCyc() {
    switch (player.step) {
       case 0:
-         player.step++;
+         if (wTime == 0) { player.step++; }
          break;
       case 1:
-         player.step++;
+         if (wTime == 0) { player.step++; }
          break;
       case 2:
-         player.step++;
+         if (wTime == 0) { player.step++; }
          break;
       case 3:
-         player.step++;
+         if (wTime == 0) { player.step++; }
          break;
       case 4:
-         player.step++;
+         if (wTime == 0) { player.step = 1; }
          break;
-      case 5:
-         player.step++;
-         break;
-      case 6:
-         player.step = 1;
-         break;
-   }
-}
-
-//walking controls
-function walkin() {
-   let moving = false;
-
-   if (keyIsDown(65)) {
-      if (player.x > 50) {
-         player.x -= player.speed;
-         moving = true;
-         walkCyc();
-         player.face = 'left';
-      }
    }
 
    if (keyIsDown(68)) {
-      if (player.x < width - 50) {
-         player.x += player.speed;
-         moving = true;
-         walkCyc();
-         player.face = 'right';
+      switch (player.step) {
+         case 1:
+            image(jackWalkR1, player.x, player.y, 100, 200);
+            break;
+         case 2:
+            image(jackWalkR1, player.x, player.y, 100, 200);
+            break;
+         case 3:
+            image(jackWalkR1, player.x, player.y, 100, 200);
+            break;
+         case 4:
+            image(jackWalkR1, player.x, player.y, 100, 200);
+            break;
+
+
 
       }
    }
-
-   if (keyIsDown(87)) {
-      if (player.y > 100) {
-         player.y -= (player.speed / 2);
-         walkCyc();
-         moving = true;
+   else if (keyIsDown(65)) {
+      switch (player.step) {
+         case 1:
+            image(jackWalkL1, player.x, player.y, 100, 200);
+            break;
+         case 2:
+            image(jackWalkL1, player.x, player.y, 100, 200);
+            break;
+         case 3:
+            image(jackWalkL1, player.x, player.y, 100, 200);
+            break;
+         case 4:
+            image(jackWalkL1, player.x, player.y, 100, 200);
+            break;
 
       }
    }
+   else if (keyIsDown(87) || keyIsDown(83)) {
+      if (player.face == 'right') { image(jackWalkR1, player.x, player.y, 100, 200); }
+      if (player.face == 'left') { image(jackWalkL1, player.x, player.y, 100, 200); }
 
-   if (keyIsDown(83)) {
-      if (player.y < 450) {
-         player.y += (player.speed / 2);
-         walkCyc();
-         moving = true;
-
-      }
    }
+   else {
+      if (player.face == 'right') { image(jackStandR, player.x, player.y, 100, 200); }
+      if (player.face == 'left') { image(jackStandL, player.x, player.y, 100, 200); }
 
-   if (player.atkTime > 0) { player.speed = 0; }
-   if (!moving) { player.speed = 0; }
-
-}
-
-//display function
-function playDisplay() {
-   if (player.face == 'right') { fill('blue'); }
-   if (player.face == 'left') { fill('purple'); }
-   stroke(0);
-   rect(player.x, player.y, 100, 200);
+   }
 
    if (player.atkTime > 0) { fill("red"); }
    else { fill(0, 0, 0, 0); }
@@ -197,6 +206,45 @@ function playDisplay() {
    else if (player.face == 'left') {
       rect(player.x - 50, player.y, 100, 200);
    }
+
+
+}
+
+//walking controls
+function walkin() {
+   let moving = false;
+
+   if (keyIsDown(65) && player.x > 50) {
+      player.x -= player.speed;
+      moving = true;
+      player.face = 'left';
+   }
+
+   if (keyIsDown(68) && player.x < width - 50) {
+      player.x += player.speed;
+      moving = true;
+      player.face = 'right';
+   }
+
+   if (keyIsDown(87) && player.y > 100) {
+      player.y -= player.speed / 2;
+      moving = true;
+   }
+
+   if (keyIsDown(83) && player.y < 450) {
+      player.y += player.speed / 2;
+      moving = true;
+   }
+
+   // manage speed
+   if (player.atkTime > 0 || !moving) {
+      player.speed = 0;
+   }
+}
+
+//display function
+function playDisplay() {
+   walkCyc();
 
    barrels.forEach(barrel => {
       if (player.y + 50 < barrel.y + 25) {
@@ -232,6 +280,8 @@ function attack() {
       }
       player.attackCount++;
    }
+
+   barrelHit();
 }
 
 function keyPressed() {
@@ -291,8 +341,32 @@ function barrelDisplay(thing) {
       fill('red');
    }
    else {
-      fill('black');
+      noFill();
    }
    rect(thing.x, thing.y, 100, 150);
+}
+
+// function to catch if an attack hits a barrel
+function barrelHit() {
+   barrels.forEach(barrel => {
+      if (player.face == 'right') {
+         if (
+            player.x + 65 < barrel.x + 50 && player.x + 65 > barrel.x - 50
+            && player.y < barrel.y + 75 && player.y > barrel.y - 75
+         ) {
+            barrel.hp -= player.dmg;
+         }
+      }
+      if (player.face == 'left') {
+         if (
+            player.x - 65 < barrel.x + 50 && player.x - 65 > barrel.x - 50
+            && player.y < barrel.y + 75 && player.y > barrel.y - 75
+         ) {
+            barrel.hp -= player.dmg;
+         }
+      }
+
+   });
+
 }
 
