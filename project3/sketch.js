@@ -40,7 +40,13 @@ let wTime = 0;
 let jackStandR;
 let jackStandL;
 let jackWalkR1;
+let jackWalkR2;
+let jackWalkR3;
+let jackWalkR4;
 let jackWalkL1;
+let jackWalkL2;
+let jackWalkL3;
+let jackWalkL4;
 
 /**
  * setup :
@@ -50,7 +56,7 @@ function setup() {
    cnv.parent('canvas-container');
    rectMode(CENTER);
    imageMode(CENTER);
-   frameRate(30);
+   frameRate(25);
 
 }
 
@@ -59,7 +65,13 @@ function preload() {
    jackStandR = loadImage('JackStandR.png');
    jackStandL = loadImage('JackStandL.png');
    jackWalkR1 = loadImage('JackWalkR1.png');
+   jackWalkR2 = loadImage('JackWalkR2.png');
+   jackWalkR3 = loadImage('JackWalkR3.png');
+   jackWalkR4 = loadImage('JackWalkR4.png');
    jackWalkL1 = loadImage('JackWalkL1.png');
+   jackWalkL2 = loadImage('JackWalkL2.png');
+   jackWalkL3 = loadImage('JackWalkL3.png');
+   jackWalkL4 = loadImage('JackWalkL4.png');
 }
 
 /**
@@ -156,13 +168,13 @@ function walkCyc() {
             image(jackWalkR1, player.x, player.y, 100, 200);
             break;
          case 2:
-            image(jackWalkR1, player.x, player.y, 100, 200);
+            image(jackWalkR2, player.x, player.y, 100, 200);
             break;
          case 3:
-            image(jackWalkR1, player.x, player.y, 100, 200);
+            image(jackWalkR3, player.x, player.y, 100, 200);
             break;
          case 4:
-            image(jackWalkR1, player.x, player.y, 100, 200);
+            image(jackWalkR4, player.x, player.y, 100, 200);
             break;
 
 
@@ -175,20 +187,56 @@ function walkCyc() {
             image(jackWalkL1, player.x, player.y, 100, 200);
             break;
          case 2:
-            image(jackWalkL1, player.x, player.y, 100, 200);
+            image(jackWalkL2, player.x, player.y, 100, 200);
             break;
          case 3:
-            image(jackWalkL1, player.x, player.y, 100, 200);
+            image(jackWalkL3, player.x, player.y, 100, 200);
             break;
          case 4:
-            image(jackWalkL1, player.x, player.y, 100, 200);
+            image(jackWalkL4, player.x, player.y, 100, 200);
             break;
 
       }
    }
    else if (keyIsDown(87) || keyIsDown(83)) {
-      if (player.face == 'right') { image(jackWalkR1, player.x, player.y, 100, 200); }
-      if (player.face == 'left') { image(jackWalkL1, player.x, player.y, 100, 200); }
+      if (player.face == 'right') {
+         switch (player.step) {
+            case 1:
+               image(jackWalkR1, player.x, player.y, 100, 200);
+               break;
+            case 2:
+               image(jackWalkR2, player.x, player.y, 100, 200);
+               break;
+            case 3:
+               image(jackWalkR3, player.x, player.y, 100, 200);
+               break;
+            case 4:
+               image(jackWalkR4, player.x, player.y, 100, 200);
+               break;
+
+
+
+         }
+      }
+      if (player.face == 'left') {
+         switch (player.step) {
+            case 1:
+               image(jackWalkL1, player.x, player.y, 100, 200);
+               break;
+            case 2:
+               image(jackWalkL2, player.x, player.y, 100, 200);
+               break;
+            case 3:
+               image(jackWalkL3, player.x, player.y, 100, 200);
+               break;
+            case 4:
+               image(jackWalkL4, player.x, player.y, 100, 200);
+               break;
+
+
+
+         }
+      }
 
    }
    else {
