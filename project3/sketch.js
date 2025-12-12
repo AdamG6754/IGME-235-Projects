@@ -56,7 +56,7 @@ function setup() {
    cnv.parent('canvas-container');
    rectMode(CENTER);
    imageMode(CENTER);
-   frameRate(25);
+   frameRate(30);
 
 }
 
