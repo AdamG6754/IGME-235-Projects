@@ -47,6 +47,30 @@ let jackWalkL1;
 let jackWalkL2;
 let jackWalkL3;
 let jackWalkL4;
+let jackPunchL1;
+let jackPunchL2;
+let jackPunchL3;
+let jackPunchR1;
+let jackPunchR2;
+let jackPunchR3;
+
+//Hunter sprites:
+let hStandR;
+let hStandL;
+let hWalkR1;
+let hWalkR2;
+let hWalkR3;
+let hWalkR4;
+let hWalkL1;
+let hWalkL2;
+let hWalkL3;
+let hWalkL4;
+let hPunchL1;
+let hPunchL2;
+let hPunchL3;
+let hPunchR1;
+let hPunchR2;
+let hPunchR3;
 
 /**
  * setup :
@@ -69,15 +93,37 @@ function preload() {
    jackWalkR3 = loadImage('JackWalkR3.png');
    jackWalkR4 = loadImage('JackWalkR4.png');
    jackWalkL1 = loadImage('JackWalkL1.png');
-   jackWalkL2 = loadImage('JackWalkL2.png');
+   jackWalkL2 = loadImage('JackWalkL2.png');   
    jackWalkL3 = loadImage('JackWalkL3.png');
    jackWalkL4 = loadImage('JackWalkL4.png');
+
+   jackPunchL1 = loadImage('JackLP1.png');
+   jackPunchL2 = loadImage('JackLP2.png');
+   jackPunchL3 = loadImage('JackLP3.png');
+   jackPunchR1 = loadImage('JackRP1.png');
+   jackPunchR2 = loadImage('JackRP2.png');
+   jackPunchR3 = loadImage('JackRP3.png');
+
+   hStandR = loadImage('HStandR.png');
+   hStandL = loadImage('HStandL.png');
+   hWalkR1 = loadImage('HWalkR1.png');
+   hWalkR2 = loadImage('HWalkR2.png');
+   hWalkL1 = loadImage('HWalk1.png');
+   hWalkL2 = loadImage('HWalkL2.png');
+   hPunchL1 = loadImage('HPL1.png');
+   hPunchL2 = loadImage('HPL2.png');
+   hPunchL3 = loadImage('HPL3.png');
+   hPunchR1 = loadImage('HPR1.png');
+   hPunchR2 = loadImage('HPR2.png');
+   hPunchR3 = loadImage('HPR3.png');
+
 }
 
 /**
  * draw :
  */
 function draw() {
+   noStroke();
    if (player.atkTime > 0) {
       player.atkTime--;
    }
@@ -144,62 +190,65 @@ function draw() {
 
 //walk cycle
 function walkCyc() {
-   switch (player.step) {
-      case 0:
-         if (wTime == 0) { player.step++; }
-         break;
-      case 1:
-         if (wTime == 0) { player.step++; }
-         break;
-      case 2:
-         if (wTime == 0) { player.step++; }
-         break;
-      case 3:
-         if (wTime == 0) { player.step++; }
-         break;
-      case 4:
-         if (wTime == 0) { player.step = 1; }
-         break;
-   }
 
-   if (keyIsDown(68)) {
-      switch (player.step) {
-         case 1:
-            image(jackWalkR1, player.x, player.y, 100, 200);
-            break;
-         case 2:
-            image(jackWalkR2, player.x, player.y, 100, 200);
-            break;
-         case 3:
-            image(jackWalkR3, player.x, player.y, 100, 200);
-            break;
-         case 4:
-            image(jackWalkR4, player.x, player.y, 100, 200);
-            break;
-
-
-
-      }
-   }
-   else if (keyIsDown(65)) {
-      switch (player.step) {
-         case 1:
-            image(jackWalkL1, player.x, player.y, 100, 200);
-            break;
-         case 2:
-            image(jackWalkL2, player.x, player.y, 100, 200);
-            break;
-         case 3:
-            image(jackWalkL3, player.x, player.y, 100, 200);
-            break;
-         case 4:
-            image(jackWalkL4, player.x, player.y, 100, 200);
-            break;
-
-      }
-   }
-   else if (keyIsDown(87) || keyIsDown(83)) {
+if(player.name == 'Jack'){
+      if (player.atkTime > 0) {
       if (player.face == 'right') {
+         switch (player.attackCount) {
+            case 1:
+               image(jackPunchR1, player.x, player.y, 100, 200);
+               break;
+            case 2:
+               image(jackPunchR1, player.x, player.y, 100, 200);
+               break;
+            case 3:
+               image(jackPunchR2, player.x, player.y, 100, 200);
+               break;
+            case 4:
+               image(jackPunchR3, player.x, player.y, 100, 200);
+               break;
+         }
+
+         return;
+      }
+      else if (player.face == 'left') {
+         switch (player.attackCount) {
+            case 1:
+               image(jackPunchL1, player.x, player.y, 100, 200);
+               break;
+            case 2:
+               image(jackPunchL1, player.x, player.y, 100, 200);
+               break;
+            case 3:
+               image(jackPunchL2, player.x, player.y, 100, 200);
+               break;
+            case 4:
+               image(jackPunchL3, player.x, player.y, 100, 200);
+               break;
+         }         return;
+      }
+
+   }
+   else {
+      switch (player.step) {
+         case 0:
+            if (wTime == 0) { player.step++; }
+            break;
+         case 1:
+            if (wTime == 0) { player.step++; }
+            break;
+         case 2:
+            if (wTime == 0) { player.step++; }
+            break;
+         case 3:
+            if (wTime == 0) { player.step++; }
+            break;
+         case 4:
+            if (wTime == 0) { player.step = 1; }
+            break;
+      }
+
+      if (keyIsDown(68)) {
          switch (player.step) {
             case 1:
                image(jackWalkR1, player.x, player.y, 100, 200);
@@ -218,7 +267,7 @@ function walkCyc() {
 
          }
       }
-      if (player.face == 'left') {
+      else if (keyIsDown(65)) {
          switch (player.step) {
             case 1:
                image(jackWalkL1, player.x, player.y, 100, 200);
@@ -233,28 +282,61 @@ function walkCyc() {
                image(jackWalkL4, player.x, player.y, 100, 200);
                break;
 
-
-
          }
+      }
+      else if (keyIsDown(87) || keyIsDown(83)) {
+         if (player.face == 'right') {
+            switch (player.step) {
+               case 1:
+                  image(jackWalkR1, player.x, player.y, 100, 200);
+                  break;
+               case 2:
+                  image(jackWalkR2, player.x, player.y, 100, 200);
+                  break;
+               case 3:
+                  image(jackWalkR3, player.x, player.y, 100, 200);
+                  break;
+               case 4:
+                  image(jackWalkR4, player.x, player.y, 100, 200);
+                  break;
+
+
+
+            }
+         }
+         if (player.face == 'left') {
+            switch (player.step) {
+               case 1:
+                  image(jackWalkL1, player.x, player.y, 100, 200);
+                  break;
+               case 2:
+                  image(jackWalkL2, player.x, player.y, 100, 200);
+                  break;
+               case 3:
+                  image(jackWalkL3, player.x, player.y, 100, 200);
+                  break;
+               case 4:
+                  image(jackWalkL4, player.x, player.y, 100, 200);
+                  break;
+
+
+
+            }
+         }
+
+      }
+      else {
+         if (player.face == 'right') { image(jackStandR, player.x, player.y, 100, 200); }
+         if (player.face == 'left') { image(jackStandL, player.x, player.y, 100, 200); }
+
       }
 
    }
-   else {
-      if (player.face == 'right') { image(jackStandR, player.x, player.y, 100, 200); }
-      if (player.face == 'left') { image(jackStandL, player.x, player.y, 100, 200); }
 
-   }
+}
 
-   if (player.atkTime > 0) { fill("red"); }
-   else { fill(0, 0, 0, 0); }
-   noStroke();
 
-   if (player.face == 'right') {
-      rect(player.x + 50, player.y, 15, 200);
-   }
-   else if (player.face == 'left') {
-      rect(player.x - 50, player.y, 15, 200);
-   }
+
 
 
 }
